@@ -9,6 +9,7 @@
    NRC        : 42964
    Grupo      : D
    Integrantes: Marycielo Pari Thacca
+   				Fernanda Valeska Vela Aleman
    ============================================================= */
 
 #include <iostream>
