@@ -43,7 +43,7 @@ string fSigue[N_S][2] = {{"@misti", "@cometa"}, {"@jazz", "@misti"},
                         {"@misti", "@jazz"}, {"@meme", "@misti"},
                         {"@haiku", "@jazz"}, {"@jazz", "@pixel"},
                         {"@misti", "@kayak"}, {"@nova", "@kayak"},
-                        {"@pixel", "@misti"}, {"@mango", "@kayak"}}
+                        {"@pixel", "@misti"}, {"@mango", "@kayak"}};
 // =================
 
 NodoUsuario* crearUsuario(string usuario, int id) {
@@ -73,39 +73,68 @@ void imprimirMarcados(string titulo, bool marca[]) {
 
 NodoUsuario* buscar(NodoUsuario *r, string u) {
     // TODO R1a
+    if (r == nullptr || r->usuario == u) return r;
+	if (u < r->usuario) return buscar(r->izq, u);
+	return buscar(r->der, u);
     return nullptr;
 }
 
 bool insertar(NodoUsuario *&r, NodoUsuario *nuevo) {
     // TODO R1b
+    if (r == nullptr) { r = nuevo; return true; }
+	if (nuevo->usuario == r->usuario) return false;
+	if (nuevo->usuario < r->usuario) return insertar(r->izq, nuevo);
+	return insertar(r->der, nuevo);
     return false;
 }
 
 bool registrarUsuario(NodoUsuario *&raiz, string u) {
     // TODO R1c
+	if (!esUsuarioValido(u) || nUsuarios == MAX || buscar(raiz, u)) return false;
+	NodoUsuario *nodo = crearUsuario(u, nUsuarios);
+	insertar(raiz, nodo); porId[nUsuarios++] = nodo;
+	return true;
     return false;
 }
 
 void enorden(NodoUsuario *r) {
     // TODO R2a
+    if (r == nullptr) return;
+	enorden(r->izq);
+	cout << " " << r->usuario;
+	enorden(r->der);
 }
 
 void preorden(NodoUsuario *r) {
     // TODO R2b
+    if (r == nullptr) return;
+	cout << " " << r->usuario;
+	preorden(r->izq);
+	preorden(r->der);
 }
 
 int contar(NodoUsuario *r) {
     // TODO R2c
+    if (r == nullptr) return 0;
+	return 1 + contar(r->izq) + contar(r->der);
     return 0;
 }
 
 int altura(NodoUsuario *r) {
     // TODO R2d
+    if (r == nullptr) return 0;
+	int a = altura(r->izq);
+	int b = altura(r->der);
+	if (a > b) return 1 + a;
+	return 1 + b;
     return 0;
 }
 
 int hojas(NodoUsuario *r) {
     // TODO R2e
+    if (r == nullptr) return 0;
+	if (r->izq == nullptr && r->der == nullptr) return 1;
+	return hojas(r->izq) + hojas(r->der);
     return 0;
 }
 
@@ -119,21 +148,39 @@ int contarSiguiendo(int id) {
 
 int contarSeguidores(int id) {
     // TODO R3a
+    int k = 0;
+	for (int x = 0; x < nUsuarios; x++) if (sigue[x][id] == 1) k++;
+	return k;
     return 0;
 }
 
 void difundir(int v, bool visto[], bool imprimir) {
     // TODO R5a
+    visto[v] = true;
+	for (int x = 0; x < nUsuarios; x++) {
+    	if (sigue[x][v] == 1 && !visto[x]) {
+        	if (imprimir) cout << " " << porId[x]->usuario;
+        	difundir(x, visto, imprimir);
+    	}
+	}
 }
 
 /* ---------- Archivos y memoria ---------- */
 
 void guardarPreorden(NodoUsuario *r, ofstream &f) {
     // TODO R6a
+    if (r == nullptr) return;
+	f << "U " << r->usuario << " " << r->id << endl;
+	guardarPreorden(r->izq, f);
+	guardarPreorden(r->der, f);
 }
 
 int liberar(NodoUsuario *r) {
     // TODO R7a
+    if (r == nullptr) return 0;
+	int k = liberar(r->izq) + liberar(r->der);
+	delete r;
+	return k + 1;
     return 0;
 }
 
@@ -210,7 +257,10 @@ int main() {
         cout << "> " << linea << endl;
 
         if (orden == "registrar") {
-            // TODO R1d
+            // TODO R1a
+			if (a1 == "") cout << "Uso: registrar @usuario" << endl;
+			else if (registrarUsuario(raiz, a1)) cout << "Registrado: " << a1 << " (id " << nUsuarios - 1 << ")" << endl;
+			else cout << "E: No se pudo registrar " << a1 << endl;
         }
         else if (orden == "perfil") {
             NodoUsuario *u = buscar(raiz, a1);
@@ -231,9 +281,18 @@ int main() {
         }
         else if (orden == "seguir") {
             // TODO R3b
+			// TODO R3b (seguir)
+			NodoUsuario *a = buscar(raiz, a1), *b = buscar(raiz, a2);
+			if (a1 == "" || a2 == "") cout << "Uso: seguir @a @b" << endl;
+			else if (!a || !b || a == b || sigue[a->id][b->id]) cout << (!a ? "E: No existe " + a1 : !b ? "E: No existe " + a2 : a == b ? "E: Una cuenta no puede seguirse a si misma" : "E: " + a1 + " ya sigue a " + a2) << endl;
+			else { sigue[a->id][b->id] = 1; cout << a1 << " ahora sigue a " << a2 << endl; }
         }
         else if (orden == "dejar") {
             // TODO R3c
+			NodoUsuario *a = buscar(raiz, a1), *b = buscar(raiz, a2);
+			if (a1 == "" || a2 == "") cout << "Uso: dejar @a @b" << endl;
+			else if (!a || !b || a == b || !sigue[a->id][b->id]) cout << (!a ? "E: No existe " + a1 : !b ? "E: No existe " + a2 : a == b ? "E: Una cuenta no puede seguirse a si misma" : "E: " + a1 + " no sigue a " + a2) << endl;
+			else { sigue[a->id][b->id] = 0; cout << a1 << " dejo de seguir a " << a2 << endl; }
         }
         else if (orden == "siguiendo") {
             NodoUsuario *u = buscar(raiz, a1);
@@ -246,24 +305,44 @@ int main() {
         }
         else if (orden == "seguidores") {
             // TODO R3d
+			NodoUsuario *u = buscar(raiz, a1); bool marca[MAX] = {false};
+			if (!u) cout << "E: No existe " << a1 << endl;
+			else { for (int x = 0; x < nUsuarios; x++) if (sigue[x][u->id]) marca[x] = true; imprimirMarcados("Seguidores de " + u->usuario, marca); }
         }
         else if (orden == "mutuos") {
             // TODO R4a
+			NodoUsuario *u = buscar(raiz, a1); bool marca[MAX] = {false};
+			if (!u) cout << "E: No existe " << a1 << endl;
+			else { for (int x = 0; x < nUsuarios; x++) if (sigue[u->id][x] && sigue[x][u->id]) marca[x] = true; imprimirMarcados("Mutuos de " + u->usuario, marca); }
         }
         else if (orden == "popular") {
             // TODO R4b
+			int idMax = 0;
+			for (int x = 1; x < nUsuarios; x++) if (contarSeguidores(x) > contarSeguidores(idMax)) idMax = x;
+			if (nUsuarios == 0) cout << "(sin cuentas)" << endl;
+			else cout << "Popular: " << porId[idMax]->usuario << " | seguidores: " << contarSeguidores(idMax) << endl;
         }
         else if (orden == "alcance") {
             // TODO R5b
+			NodoUsuario *u = buscar(raiz, a1); bool visto[MAX] = {false}; int k = 0;
+			if (!u) cout << "E: No existe " << a1 << endl;
+			else { cout << "Alcance de " << u->usuario << ":"; difundir(u->id, visto, true); for (int x = 0; x < nUsuarios; x++) if (visto[x]) k++; cout << (k == 1 ? " (nadie)" : "") << " | alcanzados: " << k - 1 << endl; }
         }
         else if (orden == "llega") {
             // TODO R5c
+			NodoUsuario *a = buscar(raiz, a1), *b = buscar(raiz, a2); bool visto[MAX] = {false};
+			if (a1 == "" || a2 == "") cout << "Uso: llega @a @b" << endl;
+			else if (!a || !b || a == b) cout << (!a ? "E: No existe " + a1 : !b ? "E: No existe " + a2 : "E: Elijan dos cuentas distintas") << endl;
+			else { difundir(a->id, visto, false); cout << "Un post de " << a1 << " llega a " << a2 << ": " << (visto[b->id] ? "si" : "no") << endl; }
         }
         else if (orden == "guardar") {
             ofstream f(ARCHIVO);
             int m = 0;
             guardarPreorden(raiz, f);
             // TODO R6b
+            for (int a = 0; a < nUsuarios; a++)
+    			for (int b = 0; b < nUsuarios; b++)
+        			if (sigue[a][b] == 1) { f << "S " << porId[a]->usuario << " " << porId[b]->usuario << endl; m++; }
             f.close();
             cout << "Guardado: " << contar(raiz) << " cuentas y " << m << " seguimientos en " << ARCHIVO << endl;
         }
@@ -273,12 +352,22 @@ int main() {
             else {
                 int m = 0;
                 // TODO R6c
+			liberar(raiz); raiz = nullptr; nUsuarios = 0; string tipo, ua, ub; int id;
+			for (int i = 0; i < MAX; i++) { porId[i] = nullptr; for (int j = 0; j < MAX; j++) sigue[i][j] = 0; }
+			while (f >> tipo) {
+			    if (tipo == "U") { f >> ua >> id; NodoUsuario *n = crearUsuario(ua, id); insertar(raiz, n); porId[id] = n; if (id >= nUsuarios) nUsuarios = id + 1; }
+			    else if (tipo == "S") { f >> ua >> ub; NodoUsuario *a = buscar(raiz, ua), *b = buscar(raiz, ub); if (a && b) { sigue[a->id][b->id] = 1; m++; } }
+} f.close();
                 cout << "Cargado: " << contar(raiz) << " cuentas y " << m << " seguimientos | altura "
                      << altura(raiz) << endl;
             }
         }
         else if (orden == "reporte") {
             // TODO R7b
+			int segs = 0, mutuos = 0;
+			for (int a = 0; a < nUsuarios; a++) for (int b = 0; b < nUsuarios; b++) { if (sigue[a][b]) segs++; if (a < b && sigue[a][b] && sigue[b][a]) mutuos++; }
+			cout << "Cuentas: " << nUsuarios << " | seguimientos: " << segs << " | pares mutuos: " << mutuos << endl;
+			cout << "Arbol: altura " << altura(raiz) << " | hojas " << hojas(raiz) << endl;
         }
         else if (orden == "ayuda") ayuda();
         else if (orden == "salir") break;
