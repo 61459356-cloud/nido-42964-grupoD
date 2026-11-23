@@ -16,7 +16,7 @@ Estructura de Datos · Evaluacion C2 · Unidad 4 · 2026-20 · NRC `42964` · Gr
 |Fernanda Vela|ferci-15  |  |  |
 
 |  |  | Dev · arbol | R1, R2 |
-|Jhon  |  | Dev · grafo | R3, R4 |
+|  |  | Dev · grafo | R3, R4 |
 |  |  | Dev · alcance y archivo | R5, R6 |
 |  |  | QA y documentacion | R7, pruebas |
 
