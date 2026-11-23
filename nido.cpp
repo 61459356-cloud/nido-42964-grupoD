@@ -10,6 +10,7 @@
    Grupo      : D
    Integrantes: Marycielo Pari Thacca
    				Fernanda Valeska Vela Aleman
+				Jhon Hermes Valdivia Tejada
    ============================================================= */
 
 #include <iostream>
