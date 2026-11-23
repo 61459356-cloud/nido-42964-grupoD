@@ -1,0 +1,59 @@
+﻿Nido - comunidad nido-parihuana (10 cuentas). Escribe ayuda.
+nido@nido-parihuana:~$ > arbol
+Preorden: @meme @jazz @haiku @cometa @kayak @mango @nova @misti @pixel @zenit
+Nodos: 10 | altura: 4 | hojas: 4
+nido@nido-parihuana:~$ > usuarios
+Usuarios (enorden): @cometa @haiku @jazz @kayak @mango @meme @misti @nova @pixel @zenit
+nido@nido-parihuana:~$ > perfil @jazz
+@jazz | id 1 | seguidores 2 | siguiendo 2
+nido@nido-parihuana:~$ > seguidores @jazz
+Seguidores de @jazz (2): @haiku @misti
+nido@nido-parihuana:~$ > siguiendo @jazz
+@jazz sigue a (2): @pixel @misti
+nido@nido-parihuana:~$ > mutuos @jazz
+Mutuos de @jazz (1): @misti
+nido@nido-parihuana:~$ > popular
+Popular: @misti | seguidores: 4
+nido@nido-parihuana:~$ > alcance @pixel
+Alcance de @pixel: @jazz @haiku @misti @meme @zenit @cometa @mango | alcanzados: 7
+nido@nido-parihuana:~$ > llega @pixel @misti
+Un post de @pixel llega a @misti: si
+nido@nido-parihuana:~$ > llega @mango @kayak
+Un post de @mango llega a @kayak: no
+nido@nido-parihuana:~$ > registrar @chasqui
+Registrado: @chasqui (id 10)
+nido@nido-parihuana:~$ > registrar @chasqui
+E: No se pudo registrar @chasqui
+nido@nido-parihuana:~$ > registrar chasqui
+E: No se pudo registrar chasqui
+nido@nido-parihuana:~$ > seguir @chasqui @haiku
+@chasqui ahora sigue a @haiku
+nido@nido-parihuana:~$ > seguir @pixel @chasqui
+@pixel ahora sigue a @chasqui
+nido@nido-parihuana:~$ > seguir @pixel @chasqui
+E: @pixel ya sigue a @chasqui
+nido@nido-parihuana:~$ > dejar @cometa @meme
+@cometa dejo de seguir a @meme
+nido@nido-parihuana:~$ > alcance @pixel
+Alcance de @pixel: @jazz @haiku @chasqui @misti @meme @zenit @mango | alcanzados: 7
+nido@nido-parihuana:~$ > seguidores @mango
+Seguidores de @mango (1): @zenit
+nido@nido-parihuana:~$ > popular
+Popular: @misti | seguidores: 4
+nido@nido-parihuana:~$ > arbol
+Preorden: @meme @jazz @haiku @cometa @chasqui @kayak @mango @nova @misti @pixel @zenit
+Nodos: 11 | altura: 5 | hojas: 4
+nido@nido-parihuana:~$ > reporte
+Cuentas: 11 | seguimientos: 17 | pares mutuos: 1
+Arbol: altura 5 | hojas 4
+nido@nido-parihuana:~$ > guardar
+Guardado: 11 cuentas y 17 seguimientos en nido.txt
+nido@nido-parihuana:~$ > cargar
+Cargado: 11 cuentas y 17 seguimientos | altura 5
+nido@nido-parihuana:~$ > usuarios
+Usuarios (enorden): @chasqui @cometa @haiku @jazz @kayak @mango @meme @misti @nova @pixel @zenit
+nido@nido-parihuana:~$ > reporte
+Cuentas: 11 | seguimientos: 17 | pares mutuos: 1
+Arbol: altura 5 | hojas 4
+nido@nido-parihuana:~$ > salir
+Nodos liberados: 11. Hasta pronto.
