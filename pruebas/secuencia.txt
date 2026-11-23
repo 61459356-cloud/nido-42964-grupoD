@@ -1,18 +1,27 @@
 arbol
 usuarios
-perfil @mango
-seguidores @mango
-mutuos @mango
+perfil @jazz
+seguidores @jazz
+siguiendo @jazz
+mutuos @jazz
 popular
-alcance @mango
-llega @andes @pixel
-llega @pixel @andes
-registrar @kiwi
-seguir @kiwi @andes
-dejar @nova @pixel
-alcance @mango
+alcance @pixel
+llega @pixel @misti
+llega @mango @kayak
+registrar @chasqui
+registrar @chasqui
+registrar chasqui
+seguir @chasqui @haiku
+seguir @pixel @chasqui
+seguir @pixel @chasqui
+dejar @cometa @meme
+alcance @pixel
+seguidores @mango
+popular
+arbol
 reporte
 guardar
 cargar
-arbol
+usuarios
+reporte
 salir
