@@ -12,13 +12,13 @@ Estructura de Datos · Evaluacion C2 · Unidad 4 · 2026-20 · NRC `42964` · Gr
 
 | Integrante | Usuario de GitHub | Rol | Requisitos |
 |---|---|---|---|
-|  |  | Lider (scrum) |  |
+|Marycielo |61459356-cloud  | Lider (scrum) |  |
 |  |  | Dev · arbol | R1, R2 |
 |  |  | Dev · grafo | R3, R4 |
 |  |  | Dev · alcance y archivo | R5, R6 |
 |  |  | QA y documentacion | R7, pruebas |
 
-Tablero del equipo: `<enlace a GitHub Projects>` · Presentacion: `<enlace>`
+Tablero del equipo: `[<enlace a GitHub Projects>](https://github.com/61459356-cloud/nido-42964-grupoD/projects)` · Presentacion: `presentacion/grupoD_Nido.pdf`
 
 ## Como compilar y ejecutar
 
@@ -29,9 +29,7 @@ Tablero del equipo: `<enlace a GitHub Projects>` · Presentacion: `<enlace>`
 
 ## Pruebas automaticas (GitHub Actions)
 
-En cada push, GitHub compila el programa, ejecuta `pruebas/secuencia.txt` y revisa que cada linea
-de `pruebas/esperado.txt` aparezca en la salida. El kit trae el ejemplo de la comunidad de prueba.
-Cuando carguen su ficha, reemplacen:
+En cada push, GitHub compila el programa con g++ -std=c++11 -Wall, ejecuta `pruebas/secuencia.txt` y ejecuta `pruebas/secuencia.txt`y valida la salida oficial de las 27 ordenes de la comunidad `nido-parihuana`
 
 - `pruebas/secuencia.txt` por la secuencia oficial de su ficha;
 - `pruebas/esperado.txt` por las lineas de su traza a mano (arbol, alcance, llega, reporte).
