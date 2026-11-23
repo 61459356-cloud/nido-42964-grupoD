@@ -15,10 +15,10 @@ Estructura de Datos · Evaluacion C2 · Unidad 4 · 2026-20 · NRC `42964` · Gr
 |Marycielo |61459356-cloud  | Lider (scrum) |  |
 |Fernanda Vela|ferci-15  |  |  |
 
-|Marycielo Pari Thacca  |  | Dev · arbol | R1, R2 |
-|Jhon Valdivia Tejada  |  | Dev · grafo | R3, R4 |
-|Fernanda Vela  |  | Dev · alcance y archivo | R5, R6 |
-|Jhon Valdivia Tejada  |  | QA y documentacion | R7, pruebas |
+|  |  | Dev · arbol | R1, R2 |
+|  |  | Dev · grafo | R3, R4 |
+|  |  | Dev · alcance y archivo | R5, R6 |
+|  |  | QA y documentacion | R7, pruebas |
 
 Tablero del equipo: `[<enlace a GitHub Projects>](https://github.com/61459356-cloud/nido-42964-grupoD/projects)` · Presentacion: `presentacion/grupoD_Nido.pdf`
 
