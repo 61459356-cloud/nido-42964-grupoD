@@ -12,12 +12,12 @@ Estructura de Datos · Evaluacion C2 · Unidad 4 · 2026-20 · NRC `42964` · Gr
 
 | Integrante | Usuario de GitHub | Rol | Requisitos |
 |---|---|---|---|
-|Marycielo |61459356-cloud  | Lider (scrum) |  |
+|Marycielo Pari|61459356-cloud  | Lider (scrum) |  |
 |Fernanda Vela|ferci-15  |  |  |
-|Marycielo|61459356-cloud  | Dev · arbol | R1, R2 |
-|Jhon Hermes| | Dev · grafo | R3, R4 |
+|Marycielo Pari|61459356-cloud  | Dev · arbol | R1, R2 |
+|Jhon Hermes|elpapuxd123123 | Dev · grafo | R3, R4 |
 |Fernanda|ferci-15  | Dev · alcance y archivo | R5, R6 |
-|  |  | QA y documentacion | R7, pruebas |
+|Jhon Hermes|elpapuxd123123| QA y documentacion | R7, pruebas |
 
 Tablero del equipo: `[<enlace a GitHub Projects>](https://github.com/61459356-cloud/nido-42964-grupoD/projects)` · Presentacion: `presentacion/grupoD_Nido.pdf`
 
