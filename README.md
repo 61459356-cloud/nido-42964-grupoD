@@ -14,10 +14,6 @@ Estructura de Datos · Evaluacion C2 · Unidad 4 · 2026-20 · NRC `42964` · Gr
 |---|---|---|---|
 |Marycielo |61459356-cloud  | Lider (scrum) |  |
 |Fernanda Vela|ferci-15  |  |  |
-|Fernanda Vela|ferci-15  |  |  |
-|Jhon Valdivia|elpapuxd123123  |  |  |
-|Marycielo Pari|61459356-cloud  |  |  |
-|Jhon Valdivia|elpapuxd123123  |  |  |
 |Marycielo|61459356-cloud  | Dev · arbol | R1, R2 |
 |Jhon Hermes| | Dev · grafo | R3, R4 |
 |Fernanda|ferci-15  | Dev · alcance y archivo | R5, R6 |
