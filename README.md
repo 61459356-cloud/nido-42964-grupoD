@@ -13,6 +13,8 @@ Estructura de Datos · Evaluacion C2 · Unidad 4 · 2026-20 · NRC `42964` · Gr
 | Integrante | Usuario de GitHub | Rol | Requisitos |
 |---|---|---|---|
 |Marycielo |61459356-cloud  | Lider (scrum) |  |
+|Fernanda Vela|ferci-15  |  |  |
+
 |  |  | Dev · arbol | R1, R2 |
 |  |  | Dev · grafo | R3, R4 |
 |  |  | Dev · alcance y archivo | R5, R6 |
