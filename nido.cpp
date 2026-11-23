@@ -6,9 +6,9 @@
    Docente    : Carlos del Carpio
    Semestre   : 2026-20
    Compilador : Dev-C++ (MinGW / GCC, C++11 o superior)
-   NRC        :
-   Grupo      :
-   Integrantes:
+   NRC        : 42964
+   Grupo      : D
+   Integrantes: Marycielo Pari Thacca
    ============================================================= */
 
 #include <iostream>
@@ -31,13 +31,19 @@ NodoUsuario *porId[MAX];
 int nUsuarios = 0;
 
 // ===== FICHA =====
-const string COMUNIDAD = "nido-de-prueba";
-const int N_U = 8;
-string fUsuario[N_U] = {"@mango", "@byte", "@pixel", "@andes", "@cuy", "@nova", "@zenit", "@lofi"};
-const int N_S = 10;
-string fSigue[N_S][2] = {{"@byte", "@mango"}, {"@pixel", "@mango"}, {"@mango", "@byte"}, {"@cuy", "@byte"},
-                         {"@andes", "@cuy"}, {"@nova", "@pixel"}, {"@zenit", "@nova"}, {"@mango", "@pixel"},
-                         {"@lofi", "@zenit"}, {"@zenit", "@lofi"}};
+const string COMUNIDAD = "nido-parihuana";
+const int N_U = 10;
+string fUsuario[N_U] = {"@meme", "@jazz", "@nova", "@haiku", "@pixel",
+                        "@zenit", "@cometa", "@misti", "@kayak", "@mango"};
+const int N_S = 16;
+string fSigue[N_S][2] = {{"@misti", "@cometa"}, {"@jazz", "@misti"},
+                        {"@zenit", "@meme"}, {"@pixel", "@haiku"},
+                        {"@cometa", "@meme"}, {"@zenit", "@mango"},
+                        {"@mango", "@misti"}, {"@meme", "@nova"},
+                        {"@misti", "@jazz"}, {"@meme", "@misti"},
+                        {"@haiku", "@jazz"}, {"@jazz", "@pixel"},
+                        {"@misti", "@kayak"}, {"@nova", "@kayak"},
+                        {"@pixel", "@misti"}, {"@mango", "@kayak"}}
 // =================
 
 NodoUsuario* crearUsuario(string usuario, int id) {
